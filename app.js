@@ -1,3 +1,5 @@
+// var twit = require('twit');
+var sentiment = require('sentiment');
 var express = require('express');
 var app     = express();
 var server  = require('http').createServer(app);
@@ -27,20 +29,18 @@ t = new twitter({
 });
 
 
-t.stream('statuses/filter', { 'locations': '-180,-90,180,90' }, function(stream) {
+t.stream('statuses/filter', { 'locations': '-125,30,-70,48' },   function(stream) {
   stream.on('data', function(data){
     if (data.id != null) {
       if (tweetData == null) {
         tweetData = data;
       } else {
-        // alert(data.text);
-        if (data.text.indexOf("lol") > -1){
-          // alert("nice");
         var dataRef = new Firebase("https://scorching-fire-1875.firebaseio.com/");
-        dataRef.push({name: data.user.name, text: data.text});
+        var score = sentiment(data.text);
+        dataRef.push({name: data.user.name, text: data.text, score: score});
         tweetData = null;
-      }
       }
     } 
   }) ;
 }) ;
+
