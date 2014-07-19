@@ -8,7 +8,7 @@ var env     = require('node-env-file');
 var tweetData;
 var dataRef = new Firebase("https://scorching-fire-1875.firebaseio.com/");
 
-server.listen(5000);
+server.listen(process.env.PORT || 5000)
 console.log("Node server started on port 5000");
 
 app.use('/', express.static(__dirname + '/'));
