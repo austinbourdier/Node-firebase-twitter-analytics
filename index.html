@@ -2,20 +2,21 @@
 <head>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
-<!-- <script data-main="scripts/main" src="scripts/require.js"></script> -->
+
   <title>Tweet Analytics</title>
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="web.css">
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-  <script src = "firebase.js"></script>
+  <script src = "model.js"></script>
 </head>
 <body>
   <div id="tweets"></div>
     <a href="https://github.com/austinbourdier/firebase-twitter-analytics"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 2;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on Github"></a>
-  <div id = "tally">
+  <div id = "metrics">
     <span id = "positive" style = "color:green">Positive: </span>
     <span id = "neutral" style = "color:black">Neutral: </span>
-    <span id = "negative" style = "color:red">Negative: </span>
+    <span id = "negative" style = "color:red">Negative: </span>    
+    <span id = "seconds" style = "color:blue; position:absolute;float:right;">Seconds: </span>
   </div>
 </body>
 </html>
