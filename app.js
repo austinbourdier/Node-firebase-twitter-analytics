@@ -22,10 +22,10 @@ app.get('/', function(req,res) {
 
 
 t = new twitter({
-  consumer_key: "c6eNELOE5cuIDyXumVzl4bwsm",
-  consumer_secret: "Du9PSkr5KNRuS8qVHGJYRprnJyR6AjsuWW5ZCHyrQZYlEWlO45",
-  access_token_key: "2405531070-elt5ErPJbH3GAlilq3d3aHnKqkGcGiFWRBPRgw5",
-  access_token_secret: "IbZosIuhZGHXthm2rkoAvp2sFKCUQtF69iqKruCAV8U7p"
+  consumer_key: 
+  consumer_secret:
+  access_token_key: 
+  access_token_secret: 
 });
 
 
