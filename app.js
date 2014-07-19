@@ -2,16 +2,16 @@ var sentiment = require('sentiment');
 var express = require('express');
 var app     = express();
 var server  = require('http').createServer(app);
-var twitter = require('twitter');
+var twitter = require('ntwitter');
 var Firebase = require('firebase');
 var env     = require('node-env-file');
 var tweetData;
 var dataRef = new Firebase("https://scorching-fire-1875.firebaseio.com/");
 
-server.listen(process.env.PORT || 5000);
+server.listen(5000);
 console.log("Node server started on port 5000");
 
-app.use('/', express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/'));
 
 app.get('/', function(req,res) {
   res.sendfile(__dirname + '/index.html');
@@ -26,10 +26,14 @@ var t = new twitter({
   access_token_secret: "IbZosIuhZGHXthm2rkoAvp2sFKCUQtF69iqKruCAV8U7p"
 });
 
-t.stream('statuses/filter', { 'locations': '-125,30,-70,48' },   function(stream) {
+// can't seem to search by location AND word....
+// streams tweets from a x-y box roughly encompassing the USA
+// var track = "obama";
+function beginStream(){
+t.stream('statuses/filter', {locations :'-125,30,-70,48'}, function(stream) {
   stream.on('data', newTweet);
 }) ;
-
+}
 function firebaseTweet(name, text, score){
   this.name = name;
   this.text = text;
@@ -39,3 +43,6 @@ function firebaseTweet(name, text, score){
 function newTweet(data){
   dataRef.push(new firebaseTweet(data.user.name, data.text, sentiment(data.text)));
 }
+beginStream();
+
+
