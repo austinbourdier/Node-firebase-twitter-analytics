@@ -1,14 +1,15 @@
 {
-  "name": "twitter-bubble",
+  "name": "firebase-twitter-analytics",
   "version": "0.0.1",
   "private": "true",
   "dependencies": {
-    "socket.io": "*",
     "express": "*",
     "twitter": "*",
+    "firebase": "*",
+    "sentiment": "*",
     "node-env-file": "*"
   },
-  "description": "Twitter visualization project using Node, Express, & Socket.io.",
+  "description": "Twitter visualization project using Node, Express, & Firebase",
   "main": "app.js",
   "devDependencies": {},
   "scripts": {
@@ -16,20 +17,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rjbernaldo/node_live_twitter.git"
+    "url": "https://github.com/austinbourdier/firebase-twitter-analytics"
   },
   "keywords": [
     "twitter",
     "streaming",
     "api",
     "node",
-    "socket.io",
+    "firebase",
     "express"
   ],
-  "author": "Rj Bernaldo",
+  "author": "Austin Bourdier",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rjbernaldo/node_live_twitter/issues"
+    "url": "https://github.com/austinbourdier/firebase-twitter-analytics"
   },
-  "homepage": "https://github.com/rjbernaldo/node_live_twitter"
+  "homepage": "https://github.com/austinbourdier/firebase-twitter-analytics"
 }

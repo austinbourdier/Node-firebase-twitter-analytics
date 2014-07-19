@@ -6,6 +6,7 @@ var twitter = require('twitter');
 var Firebase = require('firebase');
 var env     = require('node-env-file');
 var tweetData;
+var dataRef = new Firebase("https://scorching-fire-1875.firebaseio.com/");
 
 server.listen(process.env.PORT || 5000);
 console.log("Node server started on port 5000");
@@ -18,25 +19,22 @@ app.get('/', function(req,res) {
 });
 
 t = new twitter({
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
-  access_token_key: process.env.ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.ACCESS_TOKEN_SECRET
+  consumer_key: "c6eNELOE5cuIDyXumVzl4bwsm",
+  consumer_secret: "Du9PSkr5KNRuS8qVHGJYRprnJyR6AjsuWW5ZCHyrQZYlEWlO45",
+  access_token_key: "2405531070-elt5ErPJbH3GAlilq3d3aHnKqkGcGiFWRBPRgw5",
+  access_token_secret: "IbZosIuhZGHXthm2rkoAvp2sFKCUQtF69iqKruCAV8U7p"
 });
 
 t.stream('statuses/filter', { 'locations': '-125,30,-70,48' },   function(stream) {
-  stream.on('data', function(data){
-    if (data.id != null) {
-      if (tweetData == null) {
-        tweetData = data;
-      } else {
-        var dataRef = new Firebase("https://scorching-fire-1875.firebaseio.com/");
-        var score = sentiment(data.text);
-        dataRef.push({name: data.user.name, text: data.text, score: score});
-        tweetData = null;
-      }
-    } 
-  }) ;
+  stream.on('data', newTweet);
 }) ;
 
+function firebaseTweet(name, text, score){
+  this.name = name;
+  this.text = text;
+  this.score = score;
+}
 
+function newTweet(data){
+  dataRef.push(new firebaseTweet(data.user.name, data.text, sentiment(data.text)));
+}
