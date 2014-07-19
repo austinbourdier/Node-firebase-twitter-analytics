@@ -1,0 +1,67 @@
+body {
+  background-color: #F3F3F3;
+  font-family: 'Lato', sans-serif;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+.photo {
+  height: 20px;
+  padding-top: 15px;
+  color: white;
+  text-align: center;
+  background-size: cover;
+}
+
+.text {
+  height: auto;
+  width: auto;
+}
+
+.main {
+  position: absolute;
+  opacity: 1;
+  background-color: white;
+}
+
+.trend {
+  position: absolute;
+  font-size: 20px;
+}
+
+#nav {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  padding: 1em;
+  background-color: rgba(0,0,0,1);
+  color: rgb(179, 179, 179);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  text-align: left;
+}
+#tweets{
+  background-color: white;
+  overflow: auto;
+  height: 75%;
+  width: 100%;
+  padding: 10px;
+  border: 8px solid #424547;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+#tally, ul{
+  height: 200px;
+}
+
+li{
+  height: 50px;
+  }

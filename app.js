@@ -2,7 +2,7 @@ var sentiment = require('sentiment');
 var express = require('express');
 var app     = express();
 var server  = require('http').createServer(app);
-var twitter = require('ntwitter');
+var twitter = require('twitter');
 var Firebase = require('firebase');
 var env     = require('node-env-file');
 var tweetData;
