@@ -1,4 +1,3 @@
-// var twit = require('twit');
 var sentiment = require('sentiment');
 var express = require('express');
 var app     = express();
@@ -8,12 +7,11 @@ var Firebase = require('firebase');
 var env     = require('node-env-file');
 var tweetData;
 
-
 server.listen(process.env.PORT || 5000);
-console.log("Node server started.");
+console.log("Node server started on port 5000");
 app.use('/', express.static(__dirname + '/public'));
 
-
+env(__dirname + '/.env');
 app.get('/', function(req,res) {
   res.sendfile(__dirname + '/index.html');
   search = req.query || "";
@@ -22,10 +20,10 @@ app.get('/', function(req,res) {
 
 
 t = new twitter({
-  consumer_key: "c6eNELOE5cuIDyXumVzl4bwsm",
-  consumer_secret: "Du9PSkr5KNRuS8qVHGJYRprnJyR6AjsuWW5ZCHyrQZYlEWlO45",
-  access_token_key: "2405531070-elt5ErPJbH3GAlilq3d3aHnKqkGcGiFWRBPRgw5",
-  access_token_secret: "IbZosIuhZGHXthm2rkoAvp2sFKCUQtF69iqKruCAV8U7p"
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token_key: process.env.ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
 
@@ -43,4 +41,5 @@ t.stream('statuses/filter', { 'locations': '-125,30,-70,48' },   function(stream
     } 
   }) ;
 }) ;
+
 
