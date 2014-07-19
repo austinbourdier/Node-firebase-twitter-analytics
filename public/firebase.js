@@ -1,6 +1,3 @@
-
-
-
 var dataRef = new Firebase("https://scorching-fire-1875.firebaseio.com/");
 dataRef.limit(20).on("child_added", importFromFirebase);
 
@@ -11,11 +8,11 @@ var voteTally = {
 }
 
 function importFromFirebase(snapshot){
-	var new_tweet = snapshot.val();
-	analyzeSentimentValue(new_tweet);
+	analyzeSentimentValue(snapshot.val());
 };     
 
 function analyzeSentimentValue(new_tweet){
+	updateTally(new_tweet.score.score);
 	if (new_tweet.score.score > 0){
 		insertTweet(new_tweet, "green");
 	} else if (new_tweet.score.score == 0){
@@ -24,7 +21,6 @@ function analyzeSentimentValue(new_tweet){
 		insertTweet(new_tweet, "red");
 	}
 	$('#tweets')[0].scrollTop = $('#tweets')[0].scrollHeight;
-	updateTally(new_tweet.score.score);
 };
 
 function insertTweet(new_tweet, color){
@@ -32,6 +28,7 @@ function insertTweet(new_tweet, color){
 };
 
 function updateTally(score){
+	updateViewTally();
 	if (score > 0){
 		voteTally.positive++;
 	} else if (score == 0){
@@ -39,4 +36,10 @@ function updateTally(score){
 	} else {
 		voteTally.negative++;
 	}
+}
+
+function updateViewTally(){
+	$("#positive").html("Positive: " + voteTally.positive);
+	$("#neutral").html("Neutral: " + voteTally.neutral);
+	$("#negative").html("Negative: " +voteTally.negative);
 }

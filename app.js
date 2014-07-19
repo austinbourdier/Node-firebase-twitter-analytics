@@ -18,7 +18,7 @@ app.get('/', function(req,res) {
   search = req.query || "";
 });
 
-t = new twitter({
+var t = new twitter({
   consumer_key: "c6eNELOE5cuIDyXumVzl4bwsm",
   consumer_secret: "Du9PSkr5KNRuS8qVHGJYRprnJyR6AjsuWW5ZCHyrQZYlEWlO45",
   access_token_key: "2405531070-elt5ErPJbH3GAlilq3d3aHnKqkGcGiFWRBPRgw5",

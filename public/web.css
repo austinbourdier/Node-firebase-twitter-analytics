@@ -57,3 +57,11 @@ body {
   margin-bottom: 5px;
   text-align: left;
 }
+
+#tally, ul{
+  height: 200px;
+}
+
+li{
+  height: 50px;
+  }
