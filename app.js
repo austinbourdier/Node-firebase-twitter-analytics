@@ -3,7 +3,6 @@ var express = require('express');
 var app     = express();
 var server  = require('http').createServer(app);
 var twitter = require('twitter');
-var io      = require('socket.io').listen(server)
 var Firebase = require('firebase');
 var env     = require('node-env-file');
 var tweetData;

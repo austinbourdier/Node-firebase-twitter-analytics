@@ -4,11 +4,10 @@
   "private": "true",
   "dependencies": {
     "express": "*",
-    "socket.io": "*",
-    "twitter": "*",
     "firebase": "*",
+    "node-env-file": "*",
     "sentiment": "*",
-    "node-env-file": "*"
+    "twitter": "*"
   },
   "description": "Twitter visualization project using Node, Express, & Firebase",
   "main": "app.js",

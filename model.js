@@ -55,6 +55,5 @@ function resetMetrics(){
 
 function clearFirebase(){
 	dataRef.remove();
-}
-
+} 
 
