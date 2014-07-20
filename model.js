@@ -9,15 +9,17 @@ var metrics = {
 }
 
 function analyzeSentimentValue(new_tweet){
-	updateTally(new_tweet.score.score);
-	if (new_tweet.score.score > 0){
-		insertTweet(new_tweet, "green");
-	} else if (new_tweet.score.score == 0){
-		insertTweet(new_tweet, "black");
-	} else {
-		insertTweet(new_tweet, "red");
+	if (new_tweet.text.indexOf(filteredWord) > -1){
+		updateTally(new_tweet.score.score);
+		if (new_tweet.score.score > 0){
+			insertTweet(new_tweet, "green");
+		} else if (new_tweet.score.score == 0){
+			insertTweet(new_tweet, "black");
+		} else {
+			insertTweet(new_tweet, "red");
+		}
+		$('#tweets')[0].scrollTop = $('#tweets')[0].scrollHeight;
 	}
-	$('#tweets')[0].scrollTop = $('#tweets')[0].scrollHeight;
 };
 
 function updateTally(score){
@@ -42,12 +44,6 @@ function bindEventListeners(){
 	$("button").click(function(){
 		resetMetrics();
 	})
-	// window.setInterval(function(){
-	// 	clearFirebase();
-	// }, 3000);
-// 	$(window).bind("beforeunload", function() { 
-//     clearFirebase();
-// })
 
 }
 function resetMetrics(){

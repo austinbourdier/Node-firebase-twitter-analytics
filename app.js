@@ -28,22 +28,21 @@ var t = new twitter({
 
 
 function beginStream(){
-t.stream('statuses/filter', {locations :'-125,30,-70,48'}, function(stream) {
-  stream.on('data', newTweet);
-}) ;
+  t.stream('statuses/filter', {locations :'-125,30,-70,48'}, function(stream) {
+    stream.on('data', newTweet);
+  }) ;
 }
-function firebaseTweet(name, text, score){
+function firebaseTweet(name, text, score, location){
   this.name = name;
   this.text = text;
   this.score = score;
+  this.location = location;
 }
 
 function newTweet(data){
-  if (new Date().getTime() % 100 == 0){
-    console.log("reset");
-    dataRef.remove();
+  if (data.geo != null){
+    dataRef.push(new firebaseTweet(data.user.name, data.text, sentiment(data.text), data.geo.coordinates));
   }
-  dataRef.push(new firebaseTweet(data.user.name, data.text, sentiment(data.text)));
 }
 beginStream();
 

@@ -7,6 +7,7 @@ function updateViewMetrics(){
 	$("#neutralPerSecond").html(metrics.neutralPerSecond);
 	$("#negativePerSecond").html(metrics.negativePerSecond);
 }
+var filteredWord = prompt("Enter a word:");
 
 // update counter every 1 second
 setInterval(function(){
