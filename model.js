@@ -35,12 +35,30 @@ function updateTally(score){
 }
 
 $(document).ready(function(){
-	$("button").click(function(){
-		metrics.seconds = 0;
-		metrics.positiveTweetCount = 0;
-		metrics.neutralTweetCount = 0;
-		metrics.negativeTweetCount = 0;
-		dataRef.remove();
-	})
+	bindEventListeners();
 })
+
+function bindEventListeners(){
+	$("button").click(function(){
+		resetMetrics();
+	})
+	window.setInterval(function(){
+		clearFirebase();
+	}, 3000);
+	$(document).unload(function(){
+		clearFirebase();
+	});
+
+}
+function resetMetrics(){
+	for(property in metrics){
+		metrics[property] = 0;
+	}
+	clearFirebase();
+}
+
+function clearFirebase(){
+	dataRef.remove();
+}
+
 

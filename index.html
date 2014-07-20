@@ -3,26 +3,47 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
   <title>Tweet Analytics</title>
+  <script src="http://code.highcharts.com/maps/highmaps.js"></script>
+  <script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
+  <script src="http://code.highcharts.com/mapdata/countries/us/custom/us-all-mainland.js"></script>
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="web.css">
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <script src = "model.js"></script>
   <script src = "firebase.js"></script>
   <script src = "view.js"></script>
+  <script src = "map.js"></script>
+  <script src="http://code.highcharts.com/maps/highmaps.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
   <div id="tweets"></div>
-    <a href="https://github.com/austinbourdier/firebase-twitter-analytics"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 2;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on Github"></a>
-   <button>Restart Clock</button>
-  <table id = "metrics">
+  <a href="https://github.com/austinbourdier/firebase-twitter-analytics"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 2;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on Github"></a>
+  <div id = "map"></div>
+  <div id = "seconds" style = "color:blue;">Seconds: </div>
+  <button class = "btn btn-success">Restart Clock</button>
+  <table id = "metrics" class = "table">
     <tr>
-    <td id = "positive" style = "color:green;position:relative;float:right;">Positive: </td>
-    </tr><tr>
-    <td id = "neutral" style = "color:black;position:relative;float:right;">Neutral: </td>
-    </tr><tr>
-    <td id = "negative" style = "color:red;position:relative;float:right;">Negative: </td>   
-    </tr><tr> 
-    <td id = "seconds" style = "color:blue; position:relative;float:right;">Seconds: </td>
+      <th>Sentiment</th>
+      <th>Total Tweets</th>
+      <th>Per Second</th>
+    </tr>
+    <tr style = "color:green">
+      <td>Positive:</td>
+      <td id = "positive">0</td>
+      <td id = "positivePerSecond">0.00</td>  
+    </tr>
+    <tr style = "color:gray">
+      <td>Neutral:</td>
+      <td id = "neutral">0</td>
+      <td id = "neutralPerSecond">0.00</td>  
+    </tr>
+    <tr style="color:red">
+      <td>Negative:</td>
+      <td id = "negative">0</td>
+      <td id = "negativePerSecond">0.00</td>   
     </tr>
   </table>
 </body>
