@@ -1,25 +1,24 @@
+var dataRef = new Firebase("https://scorching-fire-1875.firebaseio.com/");
+dataRef.limit(20).on("child_added", importFromFirebase);
 
-
-
+function importFromFirebase(snapshot){
+	analyzeSentimentValue(snapshot.val());
+};     
 
 $(document).ready(function(){
 	$('#map').highcharts('Map', {
-
 		title : {
 			text : 'Tweet Sentiment Analysis'
 		},
-
 		mapNavigation: {
 			enabled: true,
 		},
-
 		colorAxis: {
 			min: 0,
 			max: 100,
 			minColor: '#FF0000',
 			maxColor: '#00FF00'
 		},
-
 		series : [{
 			data : data,
 			mapData: Highcharts.maps['countries/us/custom/us-all-mainland'],
@@ -33,9 +32,6 @@ $(document).ready(function(){
 		}]
 	});
 });
-
-
-
 
 var data = [{ 'hc-key': 'us-ma', value: 0 },
 { 'hc-key': 'us-wa', value: 1 },

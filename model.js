@@ -45,9 +45,9 @@ function bindEventListeners(){
 	window.setInterval(function(){
 		clearFirebase();
 	}, 3000);
-	$(document).unload(function(){
-		clearFirebase();
-	});
+	$(window).bind("beforeunload", function() { 
+    clearFirebase();
+})
 
 }
 function resetMetrics(){
