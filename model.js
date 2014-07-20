@@ -42,12 +42,12 @@ function bindEventListeners(){
 	$("button").click(function(){
 		resetMetrics();
 	})
-	window.setInterval(function(){
-		clearFirebase();
-	}, 3000);
-	$(window).bind("beforeunload", function() { 
-    clearFirebase();
-})
+	// window.setInterval(function(){
+	// 	clearFirebase();
+	// }, 3000);
+// 	$(window).bind("beforeunload", function() { 
+//     clearFirebase();
+// })
 
 }
 function resetMetrics(){

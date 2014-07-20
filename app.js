@@ -3,6 +3,7 @@ var express = require('express');
 var app     = express();
 var server  = require('http').createServer(app);
 var twitter = require('twitter');
+var io      = require('socket.io').listen(server)
 var Firebase = require('firebase');
 var env     = require('node-env-file');
 var tweetData;
@@ -25,9 +26,7 @@ var t = new twitter({
   access_token_secret: "IbZosIuhZGHXthm2rkoAvp2sFKCUQtF69iqKruCAV8U7p"
 });
 
-// can't seem to search by location AND word....
-// streams tweets from a x-y box roughly encompassing the USA
-// var track = "obama";
+
 function beginStream(){
 t.stream('statuses/filter', {locations :'-125,30,-70,48'}, function(stream) {
   stream.on('data', newTweet);
@@ -40,8 +39,11 @@ function firebaseTweet(name, text, score){
 }
 
 function newTweet(data){
+  if (new Date().getTime() % 100 == 0){
+    console.log("reset");
+    dataRef.remove();
+  }
   dataRef.push(new firebaseTweet(data.user.name, data.text, sentiment(data.text)));
 }
 beginStream();
-
 
