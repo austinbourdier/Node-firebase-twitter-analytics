@@ -1,4 +1,3 @@
-
 var metrics = {
 	seconds: 0,
 	positiveTweetCount: 0,
@@ -8,6 +7,8 @@ var metrics = {
 	neutralPerSecond: 0,
 	negativePerSecond: 0
 }
+
+var filteredWord = prompt("Enter a word:") || "";
 
 function analyzeSentimentValue(new_tweet){
 	if (new_tweet.text.indexOf(filteredWord) > -1){
