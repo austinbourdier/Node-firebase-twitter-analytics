@@ -1,3 +1,4 @@
+
 var metrics = {
 	seconds: 0,
 	positiveTweetCount: 0,
@@ -44,8 +45,8 @@ function bindEventListeners(){
 	$("button").click(function(){
 		resetMetrics();
 	})
-
 }
+
 function resetMetrics(){
 	for(property in metrics){
 		metrics[property] = 0;
@@ -56,4 +57,3 @@ function resetMetrics(){
 function clearFirebase(){
 	dataRef.remove();
 } 
-
