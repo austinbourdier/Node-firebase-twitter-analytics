@@ -33,15 +33,18 @@ dataRef.limit(20).on("child_added", importFromFirebase);
                 }
             },
             title: {
-                text: 'Live random data'
+                text: 'Twitter Sentiment Analysis'
             },
             xAxis: {
+            	title: {
+            		text: 'Time',
+            	},
                 type: 'datetime',
                 tickPixelInterval: 150
             },
             yAxis: {
                 title: {
-                    text: 'Value'
+                    text: 'Sentiment Rate'
                 },
                 plotLines: [{
                     value: 0,
@@ -63,7 +66,7 @@ dataRef.limit(20).on("child_added", importFromFirebase);
                 enabled: false
             },
             series: [{
-                name: 'Random data',
+                name: 'Sentiment Rate',
                 data: (function() {
                     // generate an array of random data
                     var data = [],
