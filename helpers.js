@@ -28,7 +28,7 @@ dataRef.limit(20).on("child_added", importFromFirebase);
                             var x = (new Date()).getTime(), // current time
                                 y = metrics.positivePerSecond-metrics.negativePerSecond;
                             series.addPoint([x, y], true, true);
-                        }, 1000);
+                        }, 1500);
                     }
                 }
             },
@@ -70,9 +70,9 @@ dataRef.limit(20).on("child_added", importFromFirebase);
                         time = (new Date()).getTime(),
                         i;
     
-                    for (i = -19; i <= 0; i++) {
+                    for (i = -10; i <= 0; i++) {
                         data.push({
-                            x: time,
+                            x: time + i * 1000,
                             y: 0
                         });
                     }
