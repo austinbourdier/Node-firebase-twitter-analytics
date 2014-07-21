@@ -8,10 +8,10 @@ var metrics = {
 	negativePerSecond: 0
 }
 
-var filteredWord = prompt("Enter a word:") || "";
+// var filteredWord = prompt("Enter a word:") || "";
 
 function analyzeSentimentValue(new_tweet){
-	if (new_tweet.text.indexOf(filteredWord) > -1){
+	// if (new_tweet.text.indexOf(filteredWord) > -1){
 		updateTally(new_tweet.score.score);
 		if (new_tweet.score.score > 0){
 			insertTweet(new_tweet, "green");
@@ -21,7 +21,7 @@ function analyzeSentimentValue(new_tweet){
 			insertTweet(new_tweet, "red");
 		}
 		$('#tweets')[0].scrollTop = $('#tweets')[0].scrollHeight;
-	}
+	// }
 };
 
 function updateTally(score){
