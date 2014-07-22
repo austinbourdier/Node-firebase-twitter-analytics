@@ -19,4 +19,5 @@
 <ol>
 <li>Firebase was not necessary. Given the high volume of tweets coming in, and the limits on data storage imposed by Firebase, another tool such as socket.io would have been preferable.<li>
 <li>Node does not allow for in-browser user input, this made it impossible to cleanly and effectively filter by specific word.</li>
+<li>Heroku does not handle env variables well</li>
 </ol>
