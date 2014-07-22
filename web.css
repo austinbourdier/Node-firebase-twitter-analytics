@@ -4,11 +4,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-
 #tweets{
   background-color: white;
   overflow: auto;
-  height: 60%;
+  height: 40%;
   width: 100%;
   padding: 10px;
   border: 8px solid #424547;
@@ -16,14 +15,24 @@ body {
   text-align: left;
 }
 
-#map {
-  height: 500px; 
-  min-width: 310px; 
-  max-width: 800px; 
-  margin: 0 auto; 
+#spline {
+  height: 40%; 
+  width: 100%;
+  margin: auto; 
 }
 .loading {
   margin-top: 10em;
   text-align: center;
   color: gray;
+}
+table{
+  text-align: center;
+  margin: auto;
+}
+
+#container{
+  text-align: center;
+  width: 100%;
+  display:inline;
+  margin: auto;
 }

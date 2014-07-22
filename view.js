@@ -8,7 +8,6 @@ function updateViewMetrics(){
 	$("#negativePerSecond").html(metrics.negativePerSecond);
 }
 
-
 // update counter every 1 second
 setInterval(function(){
 	metrics.seconds++;

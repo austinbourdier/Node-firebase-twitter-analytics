@@ -8,6 +8,8 @@ var env     = require('node-env-file');
 var tweetData;
 var dataRef = new Firebase("https://scorching-fire-1875.firebaseio.com/");
 
+
+// start server
 server.listen(process.env.PORT || 5000)
 console.log("Node server started on port 5000");
 
@@ -18,19 +20,25 @@ app.get('/', function(req,res) {
   search = req.query || "";
 });
 
+// declare env file
+env(__dirname + '/.env');
+
+// twitter auth
 var t = new twitter({
-  consumer_key: "c6eNELOE5cuIDyXumVzl4bwsm",
-  consumer_secret: "Du9PSkr5KNRuS8qVHGJYRprnJyR6AjsuWW5ZCHyrQZYlEWlO45",
-  access_token_key: "2405531070-elt5ErPJbH3GAlilq3d3aHnKqkGcGiFWRBPRgw5",
-  access_token_secret: "IbZosIuhZGHXthm2rkoAvp2sFKCUQtF69iqKruCAV8U7p"
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token_key: process.env.ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
-
+// initialize tweet stream
 function beginStream(){
 t.stream('statuses/filter', {locations :'-125,30,-70,48'}, function(stream) {
-  stream.on('data', newTweet);
-}) ;
+  stream.on('data', sendTweetToFirebase);
+});
 }
+
+// firebase tweets object
 function firebaseTweet(name, text, score, location){
   this.name = name;
   this.text = text;
@@ -38,7 +46,8 @@ function firebaseTweet(name, text, score, location){
   this.location = location;
 }
 
-function newTweet(data){
+
+function sendTweetToFirebase(data){
   if (new Date().getTime() % 1000 == 0){
     dataRef.remove();
   }
@@ -46,6 +55,8 @@ function newTweet(data){
     dataRef.push(new firebaseTweet(data.user.name, data.text, sentiment(data.text), data.geo.coordinates));
   }
 }
+
+// initialize
 beginStream();
 
 
