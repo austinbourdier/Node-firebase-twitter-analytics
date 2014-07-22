@@ -25,10 +25,10 @@ app.get('/', function(req,res) {
 
 // twitter auth
 var t = new twitter({
-  consumer_key: CONSUMER_KEY,
-  consumer_secret: CONSUMER_SECRET,
-  access_token_key: ACCESS_TOKEN_KEY,
-  access_token_secret: ACCESS_TOKEN_SECRET
+consumer_key="c6eNELOE5cuIDyXumVzl4bwsm",
+consumer_secret="Du9PSkr5KNRuS8qVHGJYRprnJyR6AjsuWW5ZCHyrQZYlEWlO45",
+access_token_key="2405531070-elt5ErPJbH3GAlilq3d3aHnKqkGcGiFWRBPRgw5",
+access_token_secret="IbZosIuhZGHXthm2rkoAvp2sFKCUQtF69iqKruCAV8U7p"
 });
 
 // initialize tweet stream
