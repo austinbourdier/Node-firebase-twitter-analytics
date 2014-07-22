@@ -1,5 +1,7 @@
 <h1>Firebase Twitter Analytics</h1>
 
+
+<a href = "http://boiling-woodland-7009.herokuapp.com/">http://boiling-woodland-7009.herokuapp.com/</a>
 <h2>Overview</h2>
 
 <p>Utilizes Node.js, Express.js, Firebase, Highcharts, and the Twitter API. Streams tweets from an area roughly encompassing the continental United States, and performs sentiment analysis on those tweets. This data is analyzed over the course of time.</p>
@@ -19,5 +21,5 @@
 <ol>
 <li>Firebase was not necessary. Given the high volume of tweets coming in, and the limits on data storage imposed by Firebase, another tool such as socket.io would have been preferable.<li>
 <li>Node does not allow for in-browser user input, this made it impossible to cleanly and effectively filter by specific word.</li>
-<li>Heroku does not handle env variables well</li>
+<li>Heroku does not handle env variables well.</li>
 </ol>
