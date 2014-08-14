@@ -75,7 +75,7 @@ series: [{
       var data = [],
       time = (new Date()).getTime(),
       i;
-      for (i = -10; i <= 0; i++) {
+      for (i = -100; i <= 0; i++) {
          data.push({
             x: time + i * 1000,
             y: 0

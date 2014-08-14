@@ -7,8 +7,7 @@
     "firebase": "*",
     "node-env-file": "*",
     "sentiment": "*",
-    "twitter": "*",
-    "newrelic": "*"
+    "twitter": "*"
     },   "engines" : {
       "node" : "^0.10.30",
       "npm" : "^1.4.21"

@@ -1,4 +1,3 @@
-require('newrelic');
 var sentiment = require('sentiment');
 var express = require('express');
 var app     = express();
