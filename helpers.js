@@ -6,18 +6,17 @@ function importFromFirebase(snapshot){
 
 
 // Highcharts spline handler
-// $(function () {
+$(function () {
 	$(document).ready(function() {
-        // function initChart(){
-          Highcharts.setOptions({
-             global: {
-                useUTC: false
-            }
-        });
-          var chart;
-          $('#spline').highcharts({
-             chart: {
-                type: 'spline',
+		Highcharts.setOptions({
+			global: {
+				useUTC: false
+			}
+		});
+		var chart;
+		$('#spline').highcharts({
+			chart: {
+				type: 'spline',
           animation: Highcharts.svg, // don't animate in old IE
           marginRight: 10,
           events: {
@@ -75,7 +74,7 @@ series: [{
       var data = [],
       time = (new Date()).getTime(),
       i;
-      for (i = -100; i <= 0; i++) {
+      for (i = -25; i <= 0; i++) {
          data.push({
             x: time + i * 1000,
             y: 0
@@ -86,4 +85,4 @@ series: [{
 }]
 });
 });
-// });
+});
