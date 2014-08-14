@@ -8,10 +8,7 @@
     "node-env-file": "*",
     "sentiment": "*",
     "twitter": "*"
-    },   "engines" : {
-      "node" : "^0.10.30",
-      "npm" : "^1.4.21"
-      },
+    },
       "description": "Twitter visualization project using Node, Express, & Firebase",
       "main": "app.js",
       "devDependencies": {},
