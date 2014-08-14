@@ -52,7 +52,7 @@ function sendTweetToFirebase(data){
     dataRef.remove();
   }
   if (data.geo != null){
-    dataRef.push(new firebaseTweet(data.user.name, data.text, sentiment(data.text), data.geo.coordinates));
+    dataRef.push(new firebaseTweet(data.user.name, data.text, sentiment(data.text).score, data.geo.coordinates));
   }
 }
 
