@@ -10,10 +10,10 @@ var metrics = {
 
 
 function analyzeSentimentValue(new_tweet){
-		updateTally(new_tweet.score.score);
-		if (new_tweet.score.score > 0){
+		updateTally(new_tweet.score);
+		if (new_tweet.score > 0){
 			insertTweet(new_tweet, "green");
-		} else if (new_tweet.score.score == 0){
+		} else if (new_tweet.score == 0){
 			insertTweet(new_tweet, "black");
 		} else {
 			insertTweet(new_tweet, "red");
@@ -56,4 +56,4 @@ function resetMetrics(){
 
 function clearFirebase(){
 	dataRef.remove();
-} 
+}

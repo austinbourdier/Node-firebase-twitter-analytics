@@ -1,3 +1,4 @@
+require('newrelic');
 var sentiment = require('sentiment');
 var express = require('express');
 var app     = express();
@@ -39,20 +40,21 @@ t.stream('statuses/filter', {locations :'-125,30,-70,48'}, function(stream) {
 }
 
 // firebase tweets object
-function firebaseTweet(name, text, score, location){
+function firebaseTweet(name, text, score, location, time){
   this.name = name;
   this.text = text;
   this.score = score;
   this.location = location;
+  this.time = time;
 }
 
 
 function sendTweetToFirebase(data){
-  if (new Date().getTime() % 1000 == 0){
-    dataRef.remove();
-  }
+  // if (new Date().getTime() % 1000 == 0){
+  //   dataRef.remove();
+  // }
   if (data.geo != null){
-    dataRef.push(new firebaseTweet(data.user.name, data.text, sentiment(data.text), data.geo.coordinates));
+    dataRef.push(new firebaseTweet(data.user.name, data.text, sentiment(data.text).score, data.geo.coordinates, ((new Date()).getTime())));
   }
 }
 

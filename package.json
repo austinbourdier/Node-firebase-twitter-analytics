@@ -7,30 +7,34 @@
     "firebase": "*",
     "node-env-file": "*",
     "sentiment": "*",
-    "twitter": "*"
-  },
-  "description": "Twitter visualization project using Node, Express, & Firebase",
-  "main": "app.js",
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/austinbourdier/firebase-twitter-analytics"
-  },
-  "keywords": [
-    "twitter",
-    "streaming",
-    "api",
-    "node",
-    "firebase",
-    "express"
-  ],
-  "author": "Austin Bourdier",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/austinbourdier/firebase-twitter-analytics"
-  },
-  "homepage": "https://github.com/austinbourdier/firebase-twitter-analytics"
-}
+    "twitter": "*",
+    "newrelic": "*"
+    },   "engines" : {
+      "node" : "^0.10.30",
+      "npm" : "^1.4.21"
+      },
+      "description": "Twitter visualization project using Node, Express, & Firebase",
+      "main": "app.js",
+      "devDependencies": {},
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+        },
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/austinbourdier/firebase-twitter-analytics"
+          },
+          "keywords": [
+          "twitter",
+          "streaming",
+          "api",
+          "node",
+          "firebase",
+          "express"
+          ],
+          "author": "Austin Bourdier",
+          "license": "ISC",
+          "bugs": {
+            "url": "https://github.com/austinbourdier/firebase-twitter-analytics"
+            },
+            "homepage": "https://github.com/austinbourdier/firebase-twitter-analytics"
+          }
