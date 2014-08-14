@@ -15,11 +15,11 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script>
-  $(window).bind("beforeunload", function() { 
-    dataRef.remove();
-})
-  </script>
+//   <script>
+//   $(window).bind("beforeunload", function() {
+//     dataRef.remove();
+// })
+//   </script>
 </head>
 <body>
   <div id="tweets"></div>
@@ -35,17 +35,17 @@
     <tr style = "color:green">
       <td>Positive:</td>
       <td id = "positive">0</td>
-      <td id = "positivePerSecond">0.00</td>  
+      <td id = "positivePerSecond">0.00</td>
     </tr>
     <tr style = "color:gray">
       <td>Neutral:</td>
       <td id = "neutral">0</td>
-      <td id = "neutralPerSecond">0.00</td>  
+      <td id = "neutralPerSecond">0.00</td>
     </tr>
     <tr style="color:red">
       <td>Negative:</td>
       <td id = "negative">0</td>
-      <td id = "negativePerSecond">0.00</td>   
+      <td id = "negativePerSecond">0.00</td>
     </tr>
   </table>
   <div id="spline"></div>

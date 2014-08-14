@@ -60,5 +60,5 @@ function sendTweetToFirebase(data){
 
 // initialize
 beginStream();
-
+// initChart();
 
