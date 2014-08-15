@@ -1,7 +1,7 @@
 <h1>Firebase Twitter Analytics</h1>
 
 
-<a href = "http://boiling-woodland-7009.herokuapp.com/">http://boiling-woodland-7009.herokuapp.com/</a>
+<a href = "http://salty-harbor-6418.herokuapp.com">Check it out here!</a>
 <h2>Overview</h2>
 
 <p>Utilizes Node.js, Express.js, Firebase, Highcharts, and the Twitter API. Streams tweets from an area roughly encompassing the continental United States, and performs sentiment analysis on those tweets. This data is analyzed over the course of time.</p>
